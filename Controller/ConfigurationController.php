@@ -17,17 +17,12 @@
     $username = validate($_POST['username']);
     $password = validate($_POST['userpass']);
     $useremail = validate($_POST['email']);
-    $userdata = array(
-      "username" => $username,
-      "password" => md5($password),
-      "email" => $useremail,
-    );
-    $user = new user($username, $useremail, $password);
-    $user->create('old_user_table');
+    $user = new user($username, $useremail, md5($password));
+    $user->create("old_user_table");
     $user->save();
 
-    $notes = new notes;
-    $notes->create('old_notes_table');
+    $notes = new notes();
+    $notes->create("old_notes_table");
     header("Location: http://localhost:8000/");
     exit();
   }

@@ -12,9 +12,7 @@
     <?php echo $body ?>
     <div class = "container">
     <div class = "row">
-      <div class = "col-md-8 col-md-offset-6">
-        &copy; <strong>Developed by:</strong><span>Team Hexatron!</span>
-      </div>
+        <center>&copy; <strong>Developed by:</strong><span>Team Hexatron!</span></center>
     </div>
   </div>
   <script type="text/javascript" src = "/public/js/jquery.min.js"></script>
