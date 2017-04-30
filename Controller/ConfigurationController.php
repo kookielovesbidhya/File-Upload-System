@@ -1,7 +1,7 @@
 <?php
   include 'validator.php';
-  include '../model/usertable.php';
-  include '../model/notestable.php';
+  include_once '../model/usertable.php';
+  include_once('../model/notestable.php');
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = validate($_POST['title']);
