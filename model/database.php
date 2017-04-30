@@ -1,26 +1,20 @@
 <?php
   include '../setting.php';
 
-  class DB{
+    class DBase {
     private $conn;
     private $host;
     private $user;
     private $db;
     private $password;
-    private $obj;
 
     public function __construct() {
-      $this->conn = false;
       $this->host = $GLOBALS['dbhost'];
       $this->user = $GLOBALS['dbuser'];
       $this->db = $GLOBALS['dbname'] ;
       $this->password = $GLOBALS['dbpass'];
-      return($this->connect());
-    }
-
-    public function __destruct() {
-      if($this->conn)
-        $this->conn = null;
+      $this->conn = $this->connect();
+      return $this->conn;
     }
 
     //Connects to database using PDO
@@ -45,11 +39,9 @@
     return $this->conn;
     }
 
-    //returns DB conncetion.
-    public function getMyDb() {
-      if($this->conn instanceof PDO) {
-        return $this->conn;
-      }
+    public function getMyDb()
+    {
+      return $this->conn;
     }
 }
  ?>

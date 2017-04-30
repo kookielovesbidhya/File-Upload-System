@@ -3,19 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Oldizgold | <?php echo $title ?></title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/signin.css">
-    <script type="text/javascript" src = "/js/jquery.min.js"></script>
-    <script type="text/javascript" src = "/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/signin.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/public/font-awesome/css/font-awesome.min.css">
   </head>
   <body>
     <?php echo $body ?>
     <div class = "container">
     <div class = "row">
-      <div class = "col-md-8 col-md-offset-4">
+      <div class = "col-md-8 col-md-offset-6">
         &copy; <strong>Developed by:</strong><span>Team Hexatron!</span>
       </div>
     </div>
   </div>
+  <script type="text/javascript" src = "/public/js/jquery.min.js"></script>
+  <script type="text/javascript" src = "/public/js/bootstrap.min.js"></script>
   </body>
 </html>
