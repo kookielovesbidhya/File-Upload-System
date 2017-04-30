@@ -8,6 +8,7 @@ class notes {
   private $school;
   private $department;
   private $semester;
+  private $conn;
 
   public function __construct($name, $location, $school, $department, $semester) {
     $this->name = $name;
@@ -15,10 +16,11 @@ class notes {
     $this->school = $school;
     $this->department = $department;
     $this->semester = $semester;
+    $this->conn = new DB;
+    $this->conn = $this->conn->getMyDb();
   }
 
   public function create($table_name) {
-    $conn = new DB;
     $sql = "CREATE TABLE ".$table_name." (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
@@ -31,7 +33,6 @@ class notes {
     $conn->execute();
   }
   public function save() {
-    $conn = new DB;
     $sql = "INSERT INTO notes (name, location, school, department, semester) VALUES ('.$name.', '.$location.', '.$school.', '.$department.', '.$semester.');";
     $conn = $conn->prepare($sql);
     $conn->execute();

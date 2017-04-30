@@ -46,6 +46,10 @@
     }
 
     //returns DB conncetion.
-    public function getMyDb()
+    public function getMyDb() {
+      if($this->conn instanceof PDO) {
+        return $this->conn;
+      }
+    }
 }
  ?>
