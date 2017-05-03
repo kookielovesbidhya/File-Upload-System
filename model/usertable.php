@@ -44,8 +44,5 @@ class user  {
       die();
     }
   }
-  public function getAll($id) {
-    
-  }
 }
 ?>

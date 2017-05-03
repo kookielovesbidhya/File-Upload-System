@@ -43,13 +43,13 @@ class notes {
   }
   public function save() {
     $sql = "INSERT INTO ".$this->table_name." (name, location, school, department, semester) VALUES ('$name', '$location', '$school', 'department', '$semester')";
-    try{
-      $this->conn->query($sql);
-    }
-    catch(PDOException $e){
-      echo "Error: $->getMessage()";
+    if(!($this->conn->query($sql))) {
+      echo"Fatal error, Can't save note.";
       die();
     }
+    move_uploaded_file($location);
+    reutrn TRUE;
+
   }
 }
 

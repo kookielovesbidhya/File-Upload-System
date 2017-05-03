@@ -1,5 +1,5 @@
 <?php
-  include '../setting.php';
+  //include '../setting.php';
 
     class DBase {
     private $conn;
@@ -9,10 +9,11 @@
     private $password;
 
     public function __construct() {
-      $this->host = $GLOBALS['dbhost'];
-      $this->user = $GLOBALS['dbuser'];
-      $this->db = $GLOBALS['dbname'] ;
-      $this->password = $GLOBALS['dbpass'];
+      $ini_array = parse_ini_file("../sql.ini");
+      $this->host = $ini_array['DB_host'];
+      $this->user = $ini_array['DB_USER'];
+      $this->db = $ini_array['DB'] ;
+      $this->password = $ini_array['DB_PASS'];
       $this->conn = $this->connect();
       return $this->conn;
     }
