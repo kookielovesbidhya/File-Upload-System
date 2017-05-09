@@ -1,34 +1,21 @@
 <?php $title="Configuration"; ?>
 <?php
     $body = '
-    <div class = "config-input">
-      <div class="container">
-        <div class = "row">
-          <div class = "col-md-8 col-md-offset-2">
-            <form class="form-signin" method="post" action="Controller/ConfigurationController.php">
-            <h2 class="form-signin-heading">Set-Up</h2>
-            <label class="sr-only">Title</label>
-            <input type="pass" name="title" class="form-control" placeholder="Title for website" required>
-            <label class="sr-only">DBHost</label>
-            <input type="text" name="db" class="form-control" placeholder="Database Host" required>
-            <label class="sr-only">DBName</label>
-            <input type="text" name="dbname" class="form-control" placeholder="Database Name" required>
-            <label class="sr-only">DBUser</label>
-            <input type="text" name="dbuser" class="form-control" placeholder="Database Username" required>
-            <label class="sr-only">DBPassword</label>
-            <input type="password" name="dbpass" class="form-control" placeholder="Database Password" required>
-            <label class="sr-only">Email</label>
-            <input type="email" name="email" class="form-control" placeholder="Email" required>
-            <label class="sr-only">Username</label>
-            <input type="text" name="username" class="form-control" placeholder="Username for login" required>
-            <label class="sr-only">Password</label>
-            <input type="password" name="userpass" class="form-control" placeholder="Password for login" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <div class="container">
+      <div class="login-container">
+            <h1>Set Up</h1><br>
+            <form action="Controller/ConfigurationController.php" method="post">
+                <input type="pass" name="title" placeholder="Title for website" required>
+                <input type="text" name="db" placeholder="Database Host" required>
+                <input type="text" name="dbname" placeholder="Database Name" required>
+                <input type="text" name="dbuser" placeholder="Database Username" required>
+                <input type="password" name="dbpass" placeholder="Database Password" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="username" placeholder="Username for login" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </form>
-          </div>
-        </div>
       </div>
-    </div>
+      </div>
     ';
 
 

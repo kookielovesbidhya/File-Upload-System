@@ -48,8 +48,7 @@ class notes {
       die();
     }
     move_uploaded_file($location);
-    reutrn TRUE;
-
+    return true;
   }
 }
 

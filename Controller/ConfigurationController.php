@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include 'validator.php';
   include_once '../model/usertable.php';
   include_once('../model/notestable.php');
@@ -9,10 +10,12 @@
     $dbuser = validate($_POST['dbuser']);
     $dbpass = validate($_POST['dbpass']);
     $dbhost = validate($_POST['db']);
-    $configfile = fopen("../setting.php", "w") or die("Unable to open file!");
-    $settings = 'define(\'dbhost\','."'$dbhost')".";\n".'define(\'dbuser\','."'$dbuser')".";\n".'define(\'dbpass\','."'$dbpass')".";\n".'define(\'dbname\','."'$dbname')".";\n".'define(\'title\','."'$title')"."\n";
-    fwrite($configfile, $settings);
-    fclose($configfile);
+    //$configfile = fopen("../setting.php", "w") or die("Unable to open file!");
+    $configfile1 = fopen("../sql.ini", "w");
+    $setting = "DB_USER = "."\"$dbuser\""."\nDB_PASS = "."\"$dbpass\""."\nDB_host = "."\"$dbhost\""."\nDB = "."\"$dbname\"";
+    fwrite($configfile1, $setting);
+    //fwrite($configfile, $settings);
+    fclose($configfile1);
     //unlink('../config.php');
     $username = validate($_POST['username']);
     $password = validate($_POST['userpass']);

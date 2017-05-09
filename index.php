@@ -4,11 +4,8 @@
   }
 ?>
 <?php
-
 	$title = "Old Is Gold";
-
 ?>
-
 <?php
 $body = '<div id="wrapper">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -19,7 +16,7 @@ $body = '<div id="wrapper">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Old Is Gold</a>
+                <a class="navbar-brand" href="#index">Old Is Gold</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -78,8 +75,6 @@ $body = '<div id="wrapper">
             </div>
         </div>
     </div>
-
     ';
     require 'model/template.php';
-
 ?>
