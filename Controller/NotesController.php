@@ -1,24 +1,39 @@
 <?php
   session_start();
-  include '../notestable.php';
-  include '../validator.php';
+  include '../model/notestable.php';
+  include 'validator.php';
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = validate(basename($_FILES["file"]["name"]));
-    $school = validate($_POST("school"));
-    $department = validate($_POST("dept"));
-    $semester = validate ($_POST("sem"));
+    $school = validate($_POST["school"]);
+    $department = validate($_POST["dept"]);
+    $semester = validate ($_POST["sem"]);
   }
 
-  $location = "..uploads/".$school."/".$department."/".$semester."/";
+
+  $location = $_SERVER["DOCUMENT_ROOT"]."/uploads/".$school;
 
   if (!file_exists($location)) {
     mkdir($location);
   }
-  $location = $location.$name;
+  $location .= "/$department";
+  if (!file_exists($location)) {
+    mkdir($location);
+  }
+
+  $location .= "/$semester";
+
+  if (!file_exists($location)) {
+    mkdir($location);
+  }
+
+  $location .= "/";
+  $table_name = "old_notes_table";
   $note = new notes();
-  $note->newNote($name, $location, $school, $department, $semester);
-  if($note->save()) {
-    $_SESSION('message') = "Successfully added new note";
+  $location .= $name;
+  $note->newNote($name, $location, $school, $department, $semester, $table_name);
+  $note->save();
+  if(move_uploaded_file($_FILES["file"]["tmp_name"],$location)) {
+    echo"$location";
   }
  ?>
