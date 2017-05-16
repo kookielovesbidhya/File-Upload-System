@@ -34,6 +34,7 @@
   $note->newNote($name, $location, $school, $department, $semester, $table_name);
   $note->save();
   if(move_uploaded_file($_FILES["file"]["tmp_name"],$location)) {
-    echo"$location";
+    $_SESSION['message'] = "Successfully added New Note";
+    header("Location: http://localhost:8000/dashboard.php#/addnotes");
   }
  ?>

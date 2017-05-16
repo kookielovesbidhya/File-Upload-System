@@ -9,6 +9,7 @@ class notes {
   private $department;
   private $semester;
   private $conn;
+  private $table_name;
 
   public function __construct() {
     $this->conn = new DBase();
@@ -34,7 +35,8 @@ class notes {
     }
   }
 
-  public function newNote($name, $location, $school, $department, $semester) {
+  public function newNote($name, $location, $school, $department, $semester, $table_name) {
+    $this->table_name = $table_name;
     $this->name = $name;
     $this->location = $location;
     $this->school = $school;
@@ -42,13 +44,12 @@ class notes {
     $this->semester = $semester;
   }
   public function save() {
-    $sql = "INSERT INTO ".$this->table_name." (name, location, school, department, semester) VALUES ('$name', '$location', '$school', 'department', '$semester')";
+    $sql = "INSERT INTO ".$this->table_name." (name, location, school, department, semester) VALUES ('$this->name', '$this->location', '$this->school', '$this->department', '$this->semester')";
     if(!($this->conn->query($sql))) {
-      echo"Fatal error, Can't save note.";
+      echo"Fatal error, Cant connect to database.";
+      var_dump($sql);
       die();
     }
-    move_uploaded_file($location);
-    return true;
   }
 }
 

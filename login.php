@@ -1,6 +1,6 @@
 <?php session_start();?>
 <?php
-  if (isset($_session['login'])) {
+  if (isset($_SESSION['login'])) {
     header("Location: dashboard.php");
   }
 ?>

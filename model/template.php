@@ -12,6 +12,15 @@
     <script type="text/javascript" src="/public/js/upload.js"></script>
   </head>
   <body ng-app="myApp">
+    <?php
+      if(isset($_SESSION['message']) or $_GET['e'] == 1) {
+        echo '<div class="alert alert-success alert-dismissable">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <h4>';
+        echo $_SESSION['message'].'</h4></div>';
+        $_SESSION['message'] = null;
+      }
+    ?>
       <?php
         echo $body;
         if(!(basename($_SERVER['PHP_SELF']) === 'dashboard.php'))
